@@ -10,34 +10,28 @@ public Context context {  get; set; }
     Target = ActionTarget.Menu | ActionTarget.ToolbarWithText)]
 public NamedStream SaveDataWorker()
 {
-    string filename = context.Login.Database.Name + "_" + Date.Today+".csv";
+    string filename = Context.Login.Database.Name + "_" + Date.Today + ".csv";
     var nowyPlik = new StreamWriter(new MemoryStream(), Encoding.UTF8);
-
-    WriteCSV writeCsv = new WriteCSV();
-    writeCsv.WriteHeader(nowyPlik);
-    writeCsv.GetData(nowyPlik,context);
-    nowyPlik.Flush();
-
-    return new NamedStream(filename, ((System.IO.MemoryStream)nowyPlik.BaseStream).ToArray());
+    return new NamedStream(filename, ((MemoryStream)nowyPlik.BaseStream).ToArray());
 }
 
 //*** odczyt pliku ***//
 [Context, Required]
-public NamedStream[] XMLFileName { get; set; }
+public NamedStream[] NamedStreams { get; set; }
 
 [Context]
 public Context Context { get; set; }
 
 [Action(
-    "Import faktur",
+    "Action",
     Priority = 1000,
     Icon = ActionIcon.Open,
     Mode = ActionMode.Progress,
     Target = ActionTarget.Menu | ActionTarget.ToolbarWithText)]
-public Object Fun()
+public void MyAction()
 {
-    foreach (var xmlFName in XMLFileName)
+    foreach (var namedStream in NamedStreams)
     {
-        // akcja
+        FileInfo fileInfo = new FileInfo(namedStream.FileName);
     }
 }
