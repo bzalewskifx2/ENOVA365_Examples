@@ -1,6 +1,6 @@
 //*** zapis pliku ***//
 [Context]
-public Context context {  get; set; }
+public Context Context {  get; set; }
 
 [Action(
     "Export do CSV",
