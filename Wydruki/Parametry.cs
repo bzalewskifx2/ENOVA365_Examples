@@ -8,23 +8,36 @@ namespace Soneta.Handel.Reports
     {
 	public class Params : ContextBase//SerializableContextBase - umożliwia zapamiętanie domyślnych wartości parametrów
 	{
-	    public Params(Context context) : base(context) { }
+	    public Params(Context context) : base(context) 
+	    { 
+		osoba = "";
+	    }
 	
-	    private int year = DateTime.Now.Year;
+	    private string osoba;
 	
 	    [Required]
-	    [Caption("Rok"), DefaultWidth(4)]
-	    public int Year
+	    [Caption("Osoba upoważniona"), DefaultWidth(20)]
+	    public string Osoba
 	    {
-		get => year;
+		get => osoba;
 	
 		set
 		{
-		    year = value;
+		    osoba = value;
 		    OnChanged(EventArgs.Empty);
 		}
 	    }
-	}
+		
+	    public object GetListOsoba()
+	    {
+		return new string[]
+		{
+		    "Marek Nowak",
+		    "Jan Kowalski",
+		    "Bogusław Linda"
+		};
+	    }
+     	}
   
 	[Context]
 	public Params BaseParams { get; set; }
