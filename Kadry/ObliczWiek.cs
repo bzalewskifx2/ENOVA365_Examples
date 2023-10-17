@@ -1,3 +1,4 @@
+CzlonekRodziny r;
 Date today = Date.Today;
 Date birth = r.Urodzony.Data;
 int age = today.Year - birth.Year;
