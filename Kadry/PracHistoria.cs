@@ -1,3 +1,3 @@
 // *** aktualna PracHistoria *** //
-Pracownik prac = null;;
+Pracownik prac = null;
 PracHistoria ph = prac[Date.Now];
