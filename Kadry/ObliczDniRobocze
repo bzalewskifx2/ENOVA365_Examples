@@ -1,0 +1,4 @@
+Pracownik p = null;
+KalkulatorPracownika kalk = new KalkulatorPracownika(p);
+CzasDni cd = kalk.Norma(BaseParams.Okres);
+int dni = cd.Dni;
