@@ -1,2 +1,4 @@
+w cmd wpisac:
+
 dotnet new -i Soneta.Platform.Developer
 dotnet new -l
