@@ -1,0 +1,1 @@
+DBCC CHECKIDENT([KartyRozPaliwa], RESEED, 0)
